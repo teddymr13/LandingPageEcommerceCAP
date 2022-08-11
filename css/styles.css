@@ -1,7 +1,6 @@
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
-/* Basic Reset */
 *,
 *::before,
 *::after {
@@ -112,7 +111,7 @@ Navigation
   position: absolute;
   top: 3px;
   right: -3px;
-  background-color: #6cbe02;
+  background-color: #131111;
   color: #fff;
   border-radius: 50%;
   font-size: 1.3rem;
@@ -223,7 +222,7 @@ Hero Area
   padding: 1rem 3rem;
   font-size: 1.6rem;
   margin-top: 1rem;
-  background-color: #6cbe02;
+  background-color: #b82626;
   color: white;
 }
 
@@ -330,13 +329,33 @@ Hero Media Query
   padding: 0 3rem;
 }
 
-.cat-center .cat {
+.cat-center .cat  {
   max-width: 37rem;
   height: 25rem;
   overflow: hidden;
   position: relative;
   cursor: pointer;
   text-align: center;
+}
+
+.cat-center .cat .btn-category{
+  background: #b82626;
+  border-radius: 60px 0 60px 0;
+  font-weight: 540;
+  color: #fff;
+  opacity: 0.9;
+  height: 45px;
+  bottom:20px;
+}
+
+.cat-center .cat .btn-category:hover{
+  background: #b83232;
+  border-radius: 60px 0 60px 0;
+  font-weight: 540;
+  color: #fff;
+  opacity: 0.9;
+  height: 45px;
+  bottom:20px;
 }
 
 .cat-center .cat:not(:last-child) {
@@ -411,7 +430,7 @@ Hero Media Query
   }
 }
 
-/* New Arrivals */
+/* New Product */
 .title {
   text-align: center;
   margin-bottom: 5rem;
@@ -552,7 +571,7 @@ Hero Media Query
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background-color: #6cbe02;
+  background-color: #131111;
   padding: 0.5rem 1rem;
   color: #fff;
   border-radius: 2rem;
@@ -731,7 +750,7 @@ Hero Media Query
 }
 
 .btn-1 {
-  background-color: #6cbe02;
+  background-color: #b82626;
   color: #fff;
   display: inline-block;
   border-radius: 1rem;
@@ -758,7 +777,7 @@ Hero Media Query
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #6cbe02;
+  background-color: #b82626;
   color: white;
   margin: 0.5rem;
   padding: 1rem 3rem;
