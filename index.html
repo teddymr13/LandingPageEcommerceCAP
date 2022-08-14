@@ -10,29 +10,24 @@
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
       rel="stylesheet"
     />
-
-     <!-- font awesome cdn link  -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <!-- Glide js -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.css">
     <!-- Custom StyleSheet -->
     <link rel="stylesheet" href="./css/styles.css" />
-    <title>ecommerce Website</title>
+     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <title>TedFurniture</title>
   </head>
   <body>
     <!-- Header -->
     <header class="header" id="header">
       <div class="navigation">
         <div class="nav-center container d-flex">
-        <a href="/" class="logo"><h1>TedChair</h1></a>
+        <a href="/" class="logo"><h1>TFurniture</h1></a>
+
           <ul class="nav-list d-flex">
             <li class="nav-item">
               <a href="/" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Product</a>
+              <a href="product.html" class="nav-link">Product</a>
             </li>
             <li class="nav-item">
               <a href="#about" class="nav-link">About</a>
@@ -51,7 +46,7 @@
               <i class="bx bx-heart"></i>
               <span class="d-flex">0</span>
             </div>
-            <a href="#" class="icon">
+            <a href="cart.html" class="icon">
               <i class="bx bx-cart"></i>
               <span class="d-flex">0</span>
             </a>
@@ -69,7 +64,7 @@
               <i class="bx bx-heart"></i>
               <span class="d-flex">0</span>
             </div>
-            <a href="#" class="icon">
+            <a href="cart.html" class="icon">
               <i class="bx bx-cart"></i>
               <span class="d-flex">0</span>
             </a>
@@ -81,8 +76,8 @@
         </div>
       </div>
 
-      <div class="home">
-        <div class="slides-container">
+    <div class="hero">
+      <div class="slides-container">
              <div class="slide active">
                 <div class="content">
                     <span>flexible chair 2022</span>
@@ -97,44 +92,44 @@
     
             <div class="slide">
                 <div class="content">
-                    <span>new arrivals</span>
-                    <h3>flexible chair</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur quisquam, magnam enim sed debitis perspiciatis.</p>
-                    <a href="#" class="hero-btn">shop now</a>
+                    <span>Sofa Exlusive</span>
+                    <h3>TPERFECT Chair</h3>
+                    <p>Exlusive Design From Indonesian</p>
+                    <a href="#" class="hero-btn">BUY NOW</a>
                 </div>
                 <div class="image">
                     <img src="./images/home-img-1.png" alt="">
                 </div>
             </div>
         </div>
-        <div id="slide-next" onclick="next()" class="fas fa-angle-right"></div>
-        <div id="slide-prev" onclick="prev()" class="fas fa-angle-left"></div>
+        <div id="slide-next" onclick="next()" class="bx bx-chevron-right"></div>
+        <div id="slide-prev" onclick="prev()" class="bx bx-chevron-left"></div>
     </div>
-      
     </header>
 
     <!-- Categories Section -->
     <section class="section category">
       <div class="title">
         <h1>CATEGORY</h1>
+        <p>Chose Category</p>
       </div>
       <div class="cat-center">
         <div class="cat">
           <img src="./images/sofa1.png" alt="" />
           <div class="btn-category">
-            <p>Chair</p>
+            <p>CHAIR</p>
           </div>
         </div>
         <div class="cat">
           <img src="./images/sofa1.png" alt="" />
           <div class="btn-category">
-            <p>Chair</p>
+            <p>CUPBOARD</p>
           </div>
         </div>
         <div class="cat">
           <img src="./images/sofa1.png" alt="" />
           <div class="btn-category">
-            <p>Chair</p>
+            <p>SOFA</p>
           </div>
         </div>
       </div>
@@ -144,19 +139,19 @@
     <section class="section new-arrival">
       <div class="title">
         <h1>NEW PRODUCT</h1>
-        <p>All the latest picked free delivery</p>
+        <p>All the latest picked from designer of our product</p>
       </div>
 
       <div class="product-center">
         <div class="product-item">
           <div class="overlay">
-            <a href="#" class="product-thumb">
+            <a href="productDetails.html" class="product-thumb">
               <img src="./images/product-1.jpg" alt="" />
             </a>
           </div>
           <div class="product-info">
-            <span>Chair</span>
-            <a href="#">good</a>
+            <span>LAMP</span>
+            <a href="productDetails.html">Concepts Solid And Modern For Room</a>
             <h4>$700</h4>
           </div>
           <ul class="icons">
@@ -167,15 +162,15 @@
         </div>
         <div class="product-item">
           <div class="overlay">
-            <a href="#" class="product-thumb">
+            <a href="" class="product-thumb">
               <img src="./images/product-3.jpg" alt="" />
             </a>
             <span class="discount">50%</span>
           </div>
 
           <div class="product-info">
-            <span>Chair</span>
-            <a href="#">good</a>
+            <span>CUPBOARD</span>
+            <a href="#">Concepts Solid And Modern For Room</a>
             <h4>$800</h4>
           </div>
           <ul class="icons">
@@ -191,8 +186,8 @@
             </a>
           </div>
           <div class="product-info">
-            <span>Chair</span>
-            <a href="#">good</a>
+            <span>SOFA</span>
+            <a href="#">Concepts Solid And Modern For Room</a>
             <h4>$150</h4>
           </div>
           <ul class="icons">
@@ -209,8 +204,8 @@
             <span class="discount">50%</span>
           </div>
           <div class="product-info">
-            <span>Chair</span>
-            <a href="#">good</a>
+            <span>CHAIR</span>
+            <a href="#">Concepts Solid And Modern For Room</a>
             <h4>$900</h4>
           </div>
           <ul class="icons">
@@ -226,8 +221,8 @@
             </a>
           </div>
           <div class="product-info">
-            <span>Chair</span>
-            <a href="#">good</a>
+            <span>CHAIR</span>
+            <a href="#">Concepts Solid And Modern For Room</a>
             <h4>$100</h4>
           </div>
           <ul class="icons">
@@ -243,8 +238,8 @@
             </a>
           </div>
           <div class="product-info">
-            <span>Chair</span>
-            <a href="#">good</a>
+            <span>LAMP</span>
+            <a href="#">Concepts Solid And Modern For Room</a>
             <h4>$500</h4>
           </div>
           <ul class="icons">
@@ -261,8 +256,8 @@
             <span class="discount">50%</span>
           </div>
           <div class="product-info">
-            <span>Chair</span>
-            <a href="#">good</a>
+            <span>SOFA</span>
+            <a href="#">Concepts Solid And Modern For Room</a>
             <h4>$200</h4>
           </div>
           <ul class="icons">
@@ -278,8 +273,8 @@
             </a>
           </div>
           <div class="product-info">
-            <span>Chair</span>
-            <a href="#">good</a>
+            <span>SOFA</span>
+            <a href="#">Concepts Solid And Modern For Room</a>
             <h4>$560</h4>
           </div>
           <ul class="icons">
@@ -291,24 +286,25 @@
       </div>
     </section>
 
-    <!-- Buat Promosi -->
+
+    <!-- Promo -->
     <section class="section banner">
       <div class="left">
         <span class="trend">Trend Design</span>
         <h1>New Collection 2022</h1>
-        <p>New Arrival <span class="color">Sale 50% OFF</span> Limited Time Offer</p>
+        <p>New Collection <span class="color">Sale 50% OFF</span> Limited Time Offer</p>
         <a href="#" class="btn btn-1">Discover Now</a>
       </div>
-      <div class="right-promosi">
-        <img src="./images/image-section-1.png" alt="">
+      <div class="right">
+        <img src="./images/bennernew.png" alt="">
       </div>
     </section>
 
-    <!-- latest productnya -->
+    <!-- Latest Furniture -->
     <section class="section new-arrival">
       <div class="title">
         <h1>Latest Furniture</h1>
-        <p>All the latest picked from design in indonesian</p>
+        <p>All the latest picked furniture from design in indonesian</p>
       </div>
 
       <div class="product-center">
@@ -320,8 +316,8 @@
             <span class="discount">50%</span>
           </div>
           <div class="product-info">
-            <span>LAMP</span>
-            <a href="">Light to the moon</a>
+            <span>SOFA</span>
+            <a href="#">Concepts Solid And Modern For Room</a>
             <h4>$700</h4>
           </div>
           <ul class="icons">
@@ -336,9 +332,10 @@
               <img src="./images/product-4.jpg" alt="" />
             </a>
           </div>
+
           <div class="product-info">
-            <span>TABLE</span>
-            <a href="">Table White </a>
+            <span>Chair</span>
+            <a href="#">Concepts Solid And Modern For Room</a>
             <h4>$800</h4>
           </div>
           <ul class="icons">
@@ -356,7 +353,7 @@
           </div>
           <div class="product-info">
             <span>LAMP</span>
-            <a href="">Light to the moon</a>
+            <a href="#">Concepts Solid And Modern For Room</a>
             <h4>$150</h4>
           </div>
           <ul class="icons">
@@ -373,7 +370,7 @@
           </div>
           <div class="product-info">
             <span>LAMP</span>
-            <a href="">Light to the moon</a>
+            <a href="#">Concepts Solid And Modern For Room</a>
             <h4>$900</h4>
           </div>
           <ul class="icons">
@@ -382,14 +379,13 @@
             <li><i class="bx bx-cart"></i></li>
           </ul>
         </div>
-
     </section>
 
     <!-- Contact -->
     <section class="section contact">
       <div class="row">
         <div class="col">
-          <h2>CUSTOMERS SUPPORT</h2>
+          <h2>EXCELLENT SUPPORT</h2>
           <p>We love our customers and they can reach us any time
           of day we will be at your service 24/7</p>
           <a href="" class="btn btn-1">Contact</a>
@@ -433,7 +429,5 @@
     </footer>
 
   </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
-  <script src="./js/slider.js"></script>
   <script src="./js/index.js"></script>
 </html>
