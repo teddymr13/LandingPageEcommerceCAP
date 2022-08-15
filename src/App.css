@@ -822,6 +822,9 @@ footer .row {
 .login-form form label {
   margin-bottom: 1rem;
 }
+.login-form form label .lbl-login {
+  margin-bottom: 15px
+}
 
 .login-form form input {
   border: 1px solid #ccc;
