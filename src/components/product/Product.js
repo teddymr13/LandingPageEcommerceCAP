@@ -1,10 +1,9 @@
-import React from 'react'
-import DataProduct from './dataProduct'
+import React from 'react';
+import DataProduct from './dataProduct';
 
 
 function Product() { 
   return (
-    // New Product
     <section className="section new-arrival">
         <div className="title">
             <h1>NEW PRODUCT</h1>
@@ -12,18 +11,17 @@ function Product() {
         </div>
 
         <div className="product-center">
-            {DataProduct.map((product) => (
-            <>
-            <div className="product-item">
+            {DataProduct.map((product, index) => (
+            <div className="product-item" key={index}>
                 <div className="overlay">
-                    <a href="productDetails.html" className="product-thumb">
+                    <a href="{#}" className="product-thumb">
                         <img src={product.image} alt="" />
                     </a>
-                    <span class="discount">{product.discount}</span>
+                    <span className="discount">{product.discount}</span>
                 </div>
                 <div className="product-info">
                     <span>{product.title}</span>
-                    <a href="productDetails.html">{product.desc}</a>
+                    <a href="{#}">{product.desc}</a>
                     <h4>{product.price}</h4>
                 </div>
                 <ul className="icons">
@@ -32,7 +30,6 @@ function Product() {
                     <li><i className="bx bx-cart"></i></li>
                 </ul>
             </div>
-            </>
             ))}
         </div>
     </section>

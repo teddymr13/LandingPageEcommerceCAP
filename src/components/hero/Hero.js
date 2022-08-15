@@ -1,30 +1,33 @@
 import React from 'react';
 import Slider from '../slider/Slider';
+import { Link } from 'react-router-dom'
+
 
 function Hero() {
+
   return (
     <header className="header" id="header">
     <div className="navigation">
       <div className="nav-center container d-flex">
       <a href="/" className="logo"><h1>TFurniture</h1></a>
 
-        <ul className="nav-list d-flex">
+        <ul className="nav-list d-flex" >
           <li className="nav-item">
-            <a href="/" className="nav-link">Home</a>
+            <a href="{/}" className="nav-link">Home</a>
           </li>
           <li className="nav-item">
-            <a href="product.html" className="nav-link">Product</a>
+            <Link to="/product" className="nav-link">Product</Link>
           </li>
           <li className="nav-item">
-            <a href="#about" className="nav-link">About</a>
+            <a href="{#}" className="nav-link">About</a>
           </li>
           <li className="nav-item">
-            <a href="#contact" className="nav-link">Contact</a>
+            <a href="{#}" className="nav-link">Contact</a>
           </li>
           <li className="icons d-flex">
-          <a href="{#}" className="icon">
+          <Link to="/login" className="icon">
             <i className="bx bx-user"></i>
-          </a>
+          </Link>
           <div className="icon">
             <i className="bx bx-search"></i>
           </div>
@@ -40,9 +43,9 @@ function Hero() {
         </ul>
 
         <div className="icons d-flex">
-          <a href="{#}" className="icon">
+          <Link to="/login" className="icon">
             <i className="bx bx-user"></i>
-          </a>
+          </Link>
           <div className="icon">
             <i className="bx bx-search"></i>
           </div>
@@ -50,7 +53,7 @@ function Hero() {
             <i className="bx bx-heart"></i>
             <span className="d-flex">0</span>
           </div>
-          <a href="cart.html" className="icon">
+          <a href="{#}" className="icon">
             <i className="bx bx-cart"></i>
             <span className="d-flex">0</span>
           </a>

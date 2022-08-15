@@ -1,26 +1,21 @@
 import './App.css';
-
-import Hero from './components/hero/Hero';
-import Category from './components/category/Category';
-import Product from './components/product/Product';
-import Promotion from './components/promo.js/Promotion';
-import LatestProduct from './components/product/LatestProduct';
-import Contact from './components/contact/Contact';
-import Footer from './components/footer/footer';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/home/home'
+import ProductPages from './pages/productpages/ProductPages';
+import Login from './pages/users/login';
+import Register from './components/activity/Register';
 
 
 function App() {
   return (
-    <div className="App">
-      <Hero/>
-      <Category/>
-      <Product/>
-      <Promotion/>
-      <LatestProduct/>
-      <Contact/>
-      <Footer/>
-    </div>
+      <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="product" element={<ProductPages />} />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+        </Routes>
+      </BrowserRouter>
   );
 };
 

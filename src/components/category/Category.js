@@ -3,7 +3,6 @@ import ImageCategory from  '../../assets/images/sofa1.png';
 
 function Category() {
   return (
-        // Categories Section
         <section className="section category">
         <div className="title">
           <h1>CATEGORY</h1>

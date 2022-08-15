@@ -3,15 +3,15 @@ import React from 'react'
 function Contact() {
   return (
     // Contact
-     <section class="section contact">
-     <div class="row">
-       <div class="col">
+     <section className="section contact">
+     <div className="row">
+       <div className="col">
          <h2>EXCELLENT SUPPORT</h2>
          <p>We love our customers and they can reach us any time
          of day we will be at your service 24/7</p>
-         <a href="{#}" class="btn btn-1">Contact</a>
+         <a href="{#}" className="btn btn-1">Contact</a>
        </div>
-       <div class="col">
+       <div className="col">
          <form action="">
            <div>
              <input type="email" placeholder="Email Address" />

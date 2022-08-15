@@ -1,17 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
-function Login() {
+function Register() {
   return (
     <div className="container">
       <div className="login-form">
         <form action="{#}">
-          <h1>Sign In</h1>
+          <h1>Sign Up</h1>
           <p>
-            Already have an account? Login in or
-            <Link to="/register"> Sign Up</Link>
+            Please fill in this form to create an account. or
+            <Link to="/login">Sign In</Link>
           </p>
 
+          <label for="username">Username</label>
+          <input type="text" placeholder="Username" name="username" required />
+  
           <label for="email">Email</label>
           <input type="text" placeholder="Email" name="email" required />
 
@@ -22,9 +24,17 @@ function Login() {
             name="psw"
             required
           />
-          
+
+          <label for="psw-repeat">Repeat Password</label>
+          <input
+            type="password"
+            placeholder="Repeat Password"
+            name="psw-repeat"
+            required
+          />
+
           <div className="buttons">
-            <button type="submit" className="signupbtn">Login</button>
+            <button type="submit" className="signupbtn">Sign Up</button>
           </div>
         </form>
       </div>
@@ -32,4 +42,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Register

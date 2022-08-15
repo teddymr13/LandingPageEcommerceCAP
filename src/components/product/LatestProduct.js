@@ -3,7 +3,6 @@ import DataLatestProduct from './dataLatestProduct'
 
 function LatestProduct() {
   return (
-    //Latest Furniture 
     <section className="section new-arrival">
        <div className="title">
          <h1>Latest Furniture</h1>
@@ -11,9 +10,8 @@ function LatestProduct() {
        </div>
  
        <div className="product-center">
-       {DataLatestProduct.map((latestproduct) => (
-        <>
-         <div className="product-item">
+       {DataLatestProduct.map((latestproduct, index ) => (
+         <div className="product-item" key={index}>
            <div className="overlay">
              <a href="{#}" className="product-thumb">
                <img src={latestproduct.image} alt="" />
@@ -31,7 +29,6 @@ function LatestProduct() {
              <li><i className="bx bx-cart"></i></li>
            </ul>
          </div>
-         </>
          ))}
         </div>
      </section>
