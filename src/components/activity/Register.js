@@ -8,12 +8,9 @@ function Register() {
           <h1>Sign Up</h1>
           <p>
             Please fill in this form to create an account. or
-            <Link to="/login">Sign In</Link>
+            <Link to="/signin"> Sign In</Link>
           </p>
-
-          <label for="username">Username</label>
-          <input type="text" placeholder="Username" name="username" required />
-  
+          
           <label for="email">Email</label>
           <input type="text" placeholder="Email" name="email" required />
 

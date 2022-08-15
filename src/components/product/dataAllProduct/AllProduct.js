@@ -1,10 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import DataAllProduct from '../dataAllProduct/dataAllProduct'
 
 function AllProduct() {
   return (
-    // All Products
     <section className="section all-products" id="products">
       <div className="top container">
         <h1>All Products</h1>
@@ -23,14 +23,14 @@ function AllProduct() {
       {DataAllProduct.map((allproduct, index) => (
         <div className="product-item" key={index}>
           <div className="overlay">
-            <a href="productDetails.html" className="product-thumb">
+            <Link to="/productdetail" className="product-thumb">
               <img src={allproduct.image} alt="" />
-            </a>
+            </Link>
             <span className="discount">{allproduct.discount}</span>
           </div>
           <div className="product-info">
             <span>{allproduct.title}</span>
-            <a href="{#}">{allproduct.desc}</a>
+            <Link to="/productdetail">{allproduct.desc}</Link>
             <h4>{allproduct.price}</h4>
           </div>
           <ul className="icons">

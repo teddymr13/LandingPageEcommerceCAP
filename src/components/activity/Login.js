@@ -9,7 +9,7 @@ function Login() {
           <h1>Sign In</h1>
           <p>
             Already have an account? Login in or
-            <Link to="/register"> Sign Up</Link>
+            <Link to="/signup"> Sign Up</Link>
           </p>
 
           <label for="email">Email</label>

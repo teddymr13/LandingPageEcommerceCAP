@@ -13,7 +13,7 @@ function Hero() {
 
         <ul className="nav-list d-flex" >
           <li className="nav-item">
-            <a href="{/}" className="nav-link">Home</a>
+            <a href="/" className="nav-link">Home</a>
           </li>
           <li className="nav-item">
             <Link to="/product" className="nav-link">Product</Link>
@@ -25,7 +25,7 @@ function Hero() {
             <a href="{#}" className="nav-link">Contact</a>
           </li>
           <li className="icons d-flex">
-          <Link to="/login" className="icon">
+          <Link to="/signin" className="icon">
             <i className="bx bx-user"></i>
           </Link>
           <div className="icon">
@@ -35,15 +35,15 @@ function Hero() {
             <i className="bx bx-heart"></i>
             <span className="d-flex">0</span>
           </div>
-          <a href="cart.html" className="icon">
+          <Link to="/cart" className="icon">
             <i className="bx bx-cart"></i>
             <span className="d-flex">0</span>
-          </a>
+          </Link>
         </li>
         </ul>
 
         <div className="icons d-flex">
-          <Link to="/login" className="icon">
+          <Link to="/signin" className="icon">
             <i className="bx bx-user"></i>
           </Link>
           <div className="icon">
@@ -53,10 +53,10 @@ function Hero() {
             <i className="bx bx-heart"></i>
             <span className="d-flex">0</span>
           </div>
-          <a href="{#}" className="icon">
+          <Link to="/cart" className="icon">
             <i className="bx bx-cart"></i>
             <span className="d-flex">0</span>
-          </a>
+          </Link>
         </div>
 
         <div className="hamburger">
