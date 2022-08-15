@@ -1,5 +1,7 @@
 import React from 'react'
-import ImageCategory from  '../../assets/images/sofa1.png';
+import ImageCategory from  '../../assets/images/bennerboard.png';
+import ImageCategoryright from  '../../assets/images/bennerSofa.jpg';
+import ImageCategoryleft from '../../assets/images/chairbanners.jpg'
 
 function Category() {
   return (
@@ -10,7 +12,7 @@ function Category() {
         </div>
         <div className="cat-center">
           <div className="cat">
-            <img src={ImageCategory} alt="" />
+            <img src={ImageCategoryleft} alt="" />
             <div className="btn-category">
               <p>CHAIR</p>
             </div>
@@ -22,7 +24,7 @@ function Category() {
             </div>
           </div>
           <div className="cat">
-            <img src={ImageCategory} alt="" />
+            <img src={ImageCategoryright} alt="" />
             <div className="btn-category">
               <p>SOFA</p>
             </div>
