@@ -52,8 +52,16 @@ Header
 
 .header {
   position: relative;
-  min-height: 100vh;
+  min-height: 10vh;
   overflow-x: hidden;
+}
+.txt-user{
+  position: relative;
+  display: inline-flex;
+  bottom: 3px;
+  font-size: 15px;
+  margin: 2px;
+
 }
 /* 
 =================
@@ -1394,4 +1402,93 @@ footer .row {
   .product-detail .details {
     gap: 3rem;
   }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .center .right img.img1 {
+    width: 30rem;
+  }
+
+  .center .right img.img2 {
+    width: 33rem;
+  }
+
+  .hero,
+  .hero .slides-container {
+    margin: 0;
+    padding: 0 3rem;
+  }
+  .hero .slides-container .slide .content {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 40rem;
+            flex: 1 1 40rem;
+    -webkit-animation: fadeLeft .4s linear .4s backwards;
+            animation: fadeLeft .4s linear .4s backwards;
+    padding-left: 4%;
+  }
+
+  .hero .slides-container .slide .content span {
+    font-size: 2.5rem;
+    color: #779;
+  }
+
+  .product-center {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .product-item {
+    width: 40%;
+    margin-bottom: 3rem;
+  }
+
+  .product-thumb img {
+    height: 20rem;
+  }
+
+  .product-item {
+    margin-right: 2rem;
+  }
+
+  .product-item .icons li {
+    padding: 0.5rem 1rem;
+    font-size: 1.8rem;
+  }
+
+  .banner {
+    padding: 8rem 5rem;
+  }
+
+  .banner .trend,
+  .banner p {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .banner h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .banner .btn {
+    padding: 0.8rem 1.7rem;
+    font-size: 1.4rem;
+  }
+
+  .banner .right img {
+    width: 45rem;
+  }
+
+  .contact {
+    padding: 8rem 1rem;
+  }
+
+  .cart-info p {
+    display: none;
+  }
+
+  footer .row {
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
+  }    
 }

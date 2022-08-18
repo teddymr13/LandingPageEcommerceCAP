@@ -1,9 +1,13 @@
 import React from 'react';
-import Slider from '../slider/Slider';
+// import Slider from '../slider/Slider';
 import { Link } from 'react-router-dom'
+import { auth, logout} from '../../firebase/configFirebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 
 function Hero() {
+  
+  const [user] = useAuthState(auth);
 
   return (
     <header className="header" id="header">
@@ -43,19 +47,22 @@ function Hero() {
         </ul>
 
         <div className="icons d-flex">
-          <Link to="/signin" className="icon">
-            <i className="bx bx-user"></i>
-          </Link>
           <div className="icon">
             <i className="bx bx-search"></i>
           </div>
-          <div className="icon">
-            <i className="bx bx-heart"></i>
-            <span className="d-flex">0</span>
-          </div>
-          <Link to="/cart" className="icon">
+          {user ? (
+            <div className="icon" onClick={logout}>
+                <i className="bx bx-user"></i>
+                <h6 className="txt-user">Sign out</h6>
+            </div>
+          ) : (
+            <Link to="/signin" className="icon">
+              <i className="bx bx-user"></i>
+              <h6 className="txt-user">Sign in</h6>
+            </Link>
+          )}
+          <Link to={user ? '/cart' : '/signin'} className="icon">
             <i className="bx bx-cart"></i>
-            <span className="d-flex">0</span>
           </Link>
         </div>
 
@@ -64,7 +71,6 @@ function Hero() {
         </div>
       </div>
     </div>
-    <Slider/>
   </header>
   )
 }
