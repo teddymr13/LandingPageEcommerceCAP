@@ -1,5 +1,6 @@
 import React from 'react'
 import Hero from '../../components/hero/Hero'
+import Slider from '../../components/slider/Slider'
 import Category from '../../components/category/Category'
 import Product from '../../components/product/Product'
 import Promotion from '../../components/promo/Promotion'
@@ -11,6 +12,7 @@ function Home() {
   return (
     <>
     <Hero/>
+    <Slider/>
     <Category/>
     <Product/>
     <Promotion/>
