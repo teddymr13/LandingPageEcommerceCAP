@@ -4,6 +4,7 @@ import img4 from "../../../assets/images/product-4.jpg"
 import img5 from "../../../assets/images/product-5.jpg"
 import img6 from "../../../assets/images/product-6.jpg"
 import img7 from "../../../assets/images/product-7.jpg"
+import img8 from "../../../assets/images/product-8.jpg"
 
 
 const DataAllProduct = [
@@ -58,10 +59,10 @@ const DataAllProduct = [
       {
         id: 7,
         title: "SOFA",
-        desc: "Concepts Solid Whit And Red",
+        desc: "Concepts Solid Cream Cirle",
         price: "$500",
         discount: "50%",
-        image: img7,
+        image: img8,
       },
       {
         id: 8,

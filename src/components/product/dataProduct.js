@@ -12,9 +12,9 @@ const DataProduct = [
         id: 1,
         title: "LAMP",
         desc: "Concepts Solid And Modern For Room",
-        price: "$700",
+        price: "$500",
         discount: "50%",
-        image: img1,
+        image: img7,
       },
       {
         id: 2,
@@ -62,7 +62,7 @@ const DataProduct = [
         desc: "Concepts Solid And Modern For Room",
         price: "$200",
         discount: "50%",
-        image: img7,
+        image: img1,
       },
       {
         id: 8,
