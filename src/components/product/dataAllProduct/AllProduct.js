@@ -7,7 +7,7 @@ function AllProduct() {
   return (
     <section className="section all-products" id="products">
       <div className="top container">
-        <h1>All Products</h1>
+        <h1>All Product</h1>
         <form>
           <select>
             <option value="1">Defualt Sorting</option>
@@ -33,11 +33,6 @@ function AllProduct() {
             <Link to="/productdetail">{allproduct.desc}</Link>
             <h4>{allproduct.price}</h4>
           </div>
-          <ul className="icons">
-            <li><i className="bx bx-heart"></i></li>
-            <li><i className="bx bx-search"></i></li>
-            <li><i className="bx bx-cart"></i></li>
-          </ul>
         </div>
         ))}
       </div>

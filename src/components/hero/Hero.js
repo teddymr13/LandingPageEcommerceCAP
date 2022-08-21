@@ -1,77 +1,56 @@
 import React from 'react';
-// import Slider from '../slider/Slider';
 import { Link } from 'react-router-dom'
 import { auth, logout} from '../../firebase/configFirebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 
 function Hero() {
-  
+
+  const navslide = () => {
+     const navToggle = document.getElementsByClassName("toggle");
+     for (let i = 0; i < navToggle.length; i++) {
+       navToggle.item(i).classList.toggle("hidden");
+     }
+  }
+
   const [user] = useAuthState(auth);
 
+
   return (
-    <header className="header" id="header">
-    <div className="navigation">
-      <div className="nav-center container d-flex">
-      <a href="/" className="logo"><h1>TFurniture</h1></a>
-
-        <ul className="nav-list d-flex" >
-          <li className="nav-item">
-            <a href="/" className="nav-link">Home</a>
-          </li>
-          <li className="nav-item">
-            <Link to="/product" className="nav-link">Product</Link>
-          </li>
-          <li className="nav-item">
-            <a href="{#}" className="nav-link">About</a>
-          </li>
-          <li className="nav-item">
-            <a href="{#}" className="nav-link">Contact</a>
-          </li>
-          <li className="icons d-flex">
-          <Link to="/signin" className="icon">
-            <i className="bx bx-user"></i>
-          </Link>
-          <div className="icon">
-            <i className="bx bx-search"></i>
-          </div>
-          <div className="icon">
-            <i className="bx bx-heart"></i>
-            <span className="d-flex">0</span>
-          </div>
-          <Link to="/cart" className="icon">
-            <i className="bx bx-cart"></i>
-            <span className="d-flex">0</span>
-          </Link>
-        </li>
-        </ul>
-
-        <div className="icons d-flex">
-          <div className="icon">
-            <i className="bx bx-search"></i>
-          </div>
-          {user ? (
-            <div className="icon" onClick={logout}>
-                <i className="bx bx-user"></i>
-                <h6 className="txt-user">Sign out</h6>
-            </div>
-          ) : (
-            <Link to="/signin" className="icon">
-              <i className="bx bx-user"></i>
-              <h6 className="txt-user">Sign in</h6>
-            </Link>
-          )}
-          <Link to={user ? '/cart' : '/signin'} className="icon">
-            <i className="bx bx-cart"></i>
-          </Link>
-        </div>
-
-        <div className="hamburger">
-          <i className="bx bx-menu-alt-left"></i>
-        </div>
-      </div>
+    <nav className="flex flex-wrap items-center justify-between p-5 bg-peach">      
+    <Link to="/" className="logo text-4xl font-semibold md:ml-6 ml-2"><h1>TFurniture</h1></Link>
+    <div className="flex md:hidden">
+      <button id="hamburger" onClick={() => navslide()}>
+         <i className="toggle block bx bx-menu-alt-left text-4xl"></i>
+         <i className="toggle hidden bx bx-x text-4xl"></i>
+      </button>
+    </div>      
+    <div className="toggle hidden w-full md:w-auto md:relative md:ml-72 md:overflow-x-hidden md:flex text-left text-bold mt-5 md:mt-0">        
+      <Link to="/" className="block md:inline-block text-black hover:text-red-900 px-3 py-3">Home</Link>
+      <Link to="/product" className="block md:inline-block text-black hover:text-red-900 px-3 py-3">Product</Link>
+      <Link to="{#}" className="block md:inline-block text-black hover:text-red-900 px-3 py-3">Contact</Link>
     </div>
-  </header>
+      <div className="toggle hidden w-full md:w-auto md:relative md:ml-64 md:overflow-x-hidden md:flex text-left text-bold mt-5 md:mt-0"> 
+        {user ? (
+        <Link to="/cart" className="toggle hidden md:flex w-full md:w-auto px-3 py-2 text-left">
+          <i className="bx bx-cart text-3xl md:relative md:overflow-x-hidden md:left-30 md:-mt-1 ml-0"> Cart</i>
+        </Link>
+        ):(
+          ''
+        )}
+
+        {user ? (
+        <div className="toggle hidden md:flex w-full md:w-auto px-3 py-2 text-left cursor-pointer" onClick={logout}>
+          <i className="bx bx-user text-3xl md:-mb-1 md:mr-10"> SignOut</i>
+        </div>
+        ):(
+          <Link to="/signin" className="toggle hidden md:flex w-full md:w-auto px-3 py-2 text-left">
+          <i className="bx bx-user text-3xl md:-mb-1 md:mr-10"> SignIn</i>
+        </Link>
+        )}
+      </div>
+      </nav> 
+  
   )
 }
 

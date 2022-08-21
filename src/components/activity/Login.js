@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom'
+import image from '../../assets/images/showcase-1.back.jpg';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   auth,
   logInWithEmailAndPassword,
@@ -30,37 +31,69 @@ function Login() {
   }, [loading, user, error, navigate]);
 
   return (
-    <div className="container">
-      <div className="login-form">
-        <form action="{#}">
-          <h1>Sign In</h1>
-          <p>
-            Already have an account? Login in or
-            <Link to="/signup"> Sign Up</Link>
-          </p>
-
-          <label for="email">Email</label>
-          <input type="text" placeholder="Email" name="email" required 
-            onChange={e =>
-                      setDataLogin({ ...dataLogin, email: e.target.value })
-                    }
-           />
-
-          <label for="psw">Password</label>
-          <input
-            type="password"
-            placeholder="Password"
-            name="psw"
-            required
-            onChange={e =>
-                      setDataLogin({ ...dataLogin, password: e.target.value })
-              }
-          />
-          
-          <div className="buttons">
-            <button type="submit" className="signupbtn" onClick={(e) => handleSubmit(e, "login")}>Login</button>
+    // Container
+      <div className="container mx-auto">
+      <div className="flex justify-center px-6 my-12">
+        {/* <!-- Row --> */}
+        <div className="w-full xl:w-3/4 lg:w-11/12 flex">
+          {/* <!-- Col --> */}
+          <div className="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg">
+            <img src={image} alt="" />
           </div>
-        </form>
+          {/* <!-- Col --> */}
+          <div className="w-full lg:w-2/3 bg-white p-5 rounded-lg lg:rounded-l-none">
+            <h3 className="pt-4 text-4xl text-center mb-8">SignIn To Your Account</h3>
+            <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+              <div className="mb-4">
+                <label className="block mb-2 text-lg font-bold text-gray-700" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  className="w-full h-12 px-3 py-2 text-xl leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  id="email"
+                  type="text"
+                  name="email"
+                  placeholder="Email"
+                  onChange={e =>
+                    setDataLogin({ ...dataLogin, email: e.target.value })
+                  }
+                  required
+
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block mb-4 text-xl font-bold text-gray-700" htmlFor="password">
+                  Password
+                </label>
+                <input
+                  className="w-full h-12 px-3 py-2 mb-3 text-xl leading-tight text-gray-700 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  id="password"
+                  type="password"
+                  name="psw"
+                  placeholder="Password"
+                  onChange={e =>
+                    setDataLogin({ ...dataLogin, password: e.target.value })
+                  }
+                  required
+                />
+              </div>
+              <div className="mb-6 text-center">
+                <button type="submit" className="w-full px-4 py-2 font-light text-white bg-red rounded-full
+                  focus:outline-none focus:shadow-outline"
+                  onClick={(e) => handleSubmit(e, "login")}>
+                  Sign In
+                </button>
+              </div>
+              <hr className="mb-6 border-t" />
+              <div className="text-center">
+                <Link to="/signup" className="inline-block text-xl text-blue align-baseline">
+                  Sign Up Account!
+                </Link>
+              </div>
+          
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   )

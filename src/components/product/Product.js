@@ -24,11 +24,6 @@ function Product() {
                     <a href="{#}">{product.desc}</a>
                     <h4>{product.price}</h4>
                 </div>
-                <ul className="icons">
-                    <li><i className="bx bx-heart"></i></li>
-                    <li><i className="bx bx-search"></i></li>
-                    <li><i className="bx bx-cart"></i></li>
-                </ul>
             </div>
             ))}
         </div>
