@@ -14,14 +14,14 @@ function Product() {
             {DataProduct.map((product, index) => (
             <div className="product-item" key={index}>
                 <div className="overlay">
-                    <a href="{#}" className="product-thumb">
+                    <a href="/productdetail" className="product-thumb">
                         <img src={product.image} alt="" />
                     </a>
                     <span className="discount">{product.discount}</span>
                 </div>
                 <div className="product-info">
                     <span>{product.title}</span>
-                    <a href="{#}">{product.desc}</a>
+                    <a href="/productdetail">{product.desc}</a>
                     <h4>{product.price}</h4>
                 </div>
             </div>

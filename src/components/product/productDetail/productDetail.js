@@ -22,7 +22,7 @@ function ProductDetail() {
             <h1>{productdetail.title}</h1>
             <div className="price">{productdetail.price}</div>
             <form className="form">
-              <input type="number" min="0" value="1" />
+              <input className="boxFromProduct" type="number" min="0" value="1" />
               {user ? (
                 <Link to="/cart" className="addCart">Add To Cart</Link>
               ):(

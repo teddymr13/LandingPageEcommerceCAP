@@ -657,8 +657,9 @@ form span {
 .product-detail .form input {
   padding: 0.8rem;
   text-align: center;
-  width: 3.5rem;
+  width: 4.6rem;
   margin-right: 2rem;
+  border: 2px solid #cccc;
 }
 
 .product-detail .form .addCart {
@@ -704,6 +705,7 @@ td input {
   width: 5rem;
   height: 3rem;
   padding: 0.5rem;
+  border: 2px solid #cccc;
 }
 
 td a {
@@ -772,7 +774,7 @@ th:last-child {
 /* Footer */
 .footer {
   padding: 7rem 1rem;
-  background-color:#f6f2f1;
+  background-color:#e9d7d3;
 }
 
 footer .row {
