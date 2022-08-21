@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
 
@@ -422,13 +426,11 @@ Hero Media Query
 }
 
 .product-item .overlay::after {
-  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   visibility: hidden;
   opacity: 0;
   transition: 300ms ease-out;
@@ -867,6 +869,7 @@ footer .row {
 .login-form form p a {
   color: dodgerblue;
 }
+
 
 /* Popup */
 .popup {

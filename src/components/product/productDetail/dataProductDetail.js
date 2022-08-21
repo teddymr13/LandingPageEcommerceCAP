@@ -1,4 +1,4 @@
-import img8 from "../../../assets/images/product-8.jpg"
+import img8 from "../../../assets/images/product-7.jpg"
 
 
 const DataProductDetail = [
