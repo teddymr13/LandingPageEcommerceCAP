@@ -7,10 +7,12 @@ import Promotion from '../../components/promo/Promotion'
 import LatesProduct from '../../components/product/LatestProduct'
 import Contact from '../../components/contact/Contact'
 import Footer from '../../components/footer/footer'
+import { ToastContainer } from 'react-toastify'
 
 function Home() {
   return (
     <>
+    <ToastContainer/>
     <Header/>
     <Slider/>
     <Category/>

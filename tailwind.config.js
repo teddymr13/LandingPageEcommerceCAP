@@ -9,6 +9,7 @@ module.exports = {
       'red'  : '#b82626',
       'peach' : '#e9d7d3',
       'blue' : '#3b00ff',
+      'green' : '#00ff48'
     },
     extend: {},
   },
