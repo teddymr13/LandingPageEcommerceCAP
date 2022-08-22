@@ -22,7 +22,7 @@ function Cart() {
             </div>
           </div>
         </td>
-        <td><input type="number" min="0" value="1"/></td>
+        <td><input type="number" min="0" value="0"/></td>
         <td>$500</td>
       </tr>
     </table>
