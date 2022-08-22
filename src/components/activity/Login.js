@@ -17,7 +17,8 @@ function Login() {
   console.log("auth-users", user);
   const notify = (message) => toast.success(message, {
     position: toast.POSITION.TOP_CENTER,
-    theme: "colored"
+    theme: "colored",
+    delay: 1000
   });
   
 
