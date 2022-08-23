@@ -1,5 +1,4 @@
 import React from 'react';
-// import DataProduct from './dataProduct';
 import { Link} from 'react-router-dom';
 import {image} from '../../image'
 import {useFurniture} from '../../hooks/useFurniture'
@@ -7,9 +6,7 @@ import {useFurniture} from '../../hooks/useFurniture'
 function Product() {
 
   const data = useFurniture();
-  const furnitures = data.APIData 
-//   console.log(furnitures) 
-
+  const furnitures = data.APIData  
 
   return (
     <section className="section new-arrival">
@@ -23,8 +20,8 @@ function Product() {
                 <div className="product-item" key={index}>
                 <Link to={"/product/" + product.id}>
                     <div className="overlay">
-                        <div className="product-thumb">
-                            <img src={image[product.urlImage]} alt="testS" />
+                        <div id="div" className="product-thumb">
+                            <img src={image[product.urlImage]} alt="" />
                         </div>
                         <span className="discount">{product.discount ? "%" : ""} {product.discount}</span>
                     </div>
