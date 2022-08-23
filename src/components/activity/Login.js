@@ -6,13 +6,20 @@ import {
   logInWithEmailAndPassword,
 } from '../../firebase/configFirebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
   const [dataLogin, setDataLogin] = useState({ email: '', password: '' });
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-
+  
   console.log("auth-users", user);
+  const notify = (message) => toast.success(message, {
+    position: toast.POSITION.TOP_CENTER,
+    theme: "colored",
+    delay: 1000
+  });
   
 
   const handleSubmit = async (e, params) => {
@@ -20,6 +27,7 @@ function Login() {
     if (params === 'login') {
       await logInWithEmailAndPassword(dataLogin.email, dataLogin.password);
     }
+    notify("SignIn Successfully");
   };
 
   useEffect(() => {

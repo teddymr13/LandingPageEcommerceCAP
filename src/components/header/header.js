@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Link as Scroll } from "react-scroll";
 import { auth, logout} from '../../firebase/configFirebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
@@ -25,7 +26,7 @@ function Header() {
     <div className="toggle hidden w-full md:w-auto md:ml-52 md:flex text-left text-bold mt-5 md:mt-0">        
       <Link to="/" className="block md:inline-block text-black hover:text-red-900 px-3 py-3">Home</Link>
       <Link to="/product" className="block md:inline-block text-black hover:text-red-900 px-3 py-3">Product</Link>
-      <Link to="{#}" className="block md:inline-block text-black hover:text-red-900 px-3 py-3">Contact</Link>
+      <Scroll to="contacts" spy={true} smooth={true} offset={100} duration={300} className="block md:inline-block text-black hover:text-red-900 px-3 py-3 cursor-pointer">Contact</Scroll>
     </div>
 
     <div className="toggle hidden w-auto md:w-auto md:ml-52 md:flex text-left text-bold mt-5 md:mt-0">

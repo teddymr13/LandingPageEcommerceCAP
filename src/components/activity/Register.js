@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import image from '../../assets/images/showcase-1.back.jpg';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
 import { auth, registerWithEmailAndPassword} from '../../firebase/configFirebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Register() {
+  
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -14,8 +17,15 @@ function Register() {
     password: ''
   });
 
+  const notify = (message) => toast.success(message, {
+    position: toast.POSITION.TOP_CENTER,
+    theme: "colored",
+    delay: 1000
+  });
+
   // handle the form data
   const handleSubmit = async (e, params) => {
+    
       e.preventDefault();
       if (params === 'register') {
         await registerWithEmailAndPassword(
@@ -23,8 +33,8 @@ function Register() {
           dataRegister.email,
           dataRegister.password
         );
-        alert("User created successfully");       
-        
+        notify("User created successfully");  
+            
       }
   };
 

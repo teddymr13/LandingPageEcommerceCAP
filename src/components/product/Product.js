@@ -1,6 +1,6 @@
 import React from 'react';
 import DataProduct from './dataProduct';
-
+import { Link} from 'react-router-dom';
 
 function Product() { 
   return (
@@ -12,19 +12,21 @@ function Product() {
 
         <div className="product-center">
             {DataProduct.map((product, index) => (
-            <div className="product-item" key={index}>
-                <div className="overlay">
-                    <a href="/productdetail" className="product-thumb">
-                        <img src={product.image} alt="" />
-                    </a>
-                    <span className="discount">{product.discount}</span>
+                <div className="product-item" key={index}>
+                <Link to={"/product/" + product.id}>
+                    <div className="overlay">
+                        <a href="/productdetail" className="product-thumb">
+                            <img src={product.image} alt="" />
+                        </a>
+                        <span className="discount">{product.discount}</span>
+                    </div>
+                    <div className="product-info">
+                        <span>{product.title}</span>
+                        <a href="/productdetail">{product.desc}</a>
+                        <h4>{product.price}</h4>
+                    </div>
+                    </Link>
                 </div>
-                <div className="product-info">
-                    <span>{product.title}</span>
-                    <a href="/productdetail">{product.desc}</a>
-                    <h4>{product.price}</h4>
-                </div>
-            </div>
             ))}
         </div>
     </section>
