@@ -13,7 +13,7 @@ function AllProduct() {
         <h1>All Product</h1>
         <form>
           <select>
-            <option value="1">Sort Default</option>
+            <option value="1">Default Sort</option>
             <option value="2">Sort By Price</option>
             <option value="3">Sort By Lamp</option>
             <option value="4">Sort By Chair</option>
