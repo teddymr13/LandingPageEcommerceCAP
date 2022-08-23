@@ -1,28 +1,34 @@
 import React from 'react'
-import DataProductDetail from './dataProductDetail'
-import { Link } from 'react-router-dom'
+// import DataProductDetail from './dataProductDetail'
+import { Link, useParams } from 'react-router-dom'
 import { auth } from '../../../firebase/configFirebase';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuthState} from 'react-firebase-hooks/auth';
+import {image} from '../../../image'
+import { useFurnitureById } from '../../../hooks/useFurniture'
 
 function ProductDetail() {
-  
-  const [user] = useAuthState(auth);
-
+  const {productId} = useParams()
+  const [user] = useAuthState(auth); 
+  const data = useFurnitureById(productId);
+  const furnitureById = data.APIData
+  console.log(furnitureById)
   return (
     <section className="section product-detail">
-     {DataProductDetail.map((productdetail, index ) => (
-        <div className="details container" key={index}>
+        <div className="details container">
           <div className="left image-container">
             <div className="main">
-              <img src={productdetail.image} id="zoom" alt="" />
+              <img src={image[furnitureById.urlImage]} id="zoom" alt="" />
+              {/* {furnitureById.discount ? (<span className="discount"> {furnitureById.discount}%</span>) : ""} */}
             </div>
           </div>
           <div className="right">
             <span>Home/Sofa</span>
-            <h1>{productdetail.title}</h1>
-            <div className="price">{productdetail.price}</div>
+            <h1>{furnitureById.title}</h1>
+            <div className="price">
+            {furnitureById.price ? "$" : ""} {furnitureById.price}
+            </div>
             <form className="form">
-              <input className="boxFromProduct" type="number" min="0" value="1" />
+              <input className="boxFromProduct" type="number" min="0" defaultValue={"1"} />
               {user ? (
                 <Link to="/cart" className="addCart">Add To Cart</Link>
               ):(
@@ -32,11 +38,10 @@ function ProductDetail() {
             </form>
             <h3>Product Detail</h3>
             <p>
-             {productdetail.desc}
+             {furnitureById.description}
             </p>
           </div>
         </div>
-        ))}
       </section>
   )
 }

@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
-import DataAllProduct from '../dataAllProduct/dataAllProduct'
+import {image} from '../../../image'
+import {useFurniture} from '../../../hooks/useFurniture'
 
 function AllProduct() {
+  const data = useFurniture();
+  const furnitures = data.APIData 
+  
   return (
     <section className="section all-products" id="products">
       <div className="top container">
@@ -12,27 +15,29 @@ function AllProduct() {
           <select>
             <option value="1">Defualt Sorting</option>
             <option value="2">Sort By Price</option>
-            <option value="3">Sort By Popularity</option>
-            <option value="4">Sort By Sale</option>
-            <option value="5">Sort By Rating</option>
+            <option value="3">Sort By Lamp</option>
+            <option value="4">Sort By Chair</option>
+            <option value="5">Sort By CupBoard</option>
           </select>
           <span><i className="bx bx-chevron-down"></i></span>
         </form>
       </div>
       <div className="product-center container">
-      {DataAllProduct.map((allproduct, index) => (
+      {furnitures.map((product, index) => (
         <div className="product-item" key={index}>
-          <div className="overlay">
-            <Link to="/productdetail" className="product-thumb">
-              <img src={allproduct.image} alt="" />
+          <Link to={"/product/" + product.id}>
+            <div className="overlay">
+                <div className="product-thumb">
+                  <img src={image[product.urlImage]} alt="" />
+                </div>
+                {product.discount ? (<span className="discount"> {product.discount}%</span>) : ""}
+            </div>
+            <div className="product-info">
+              <span>{product.category}</span>
+              <div>{product.title}</div>
+              <h4>{product.price ? "$" : ""}{product.price}</h4>
+            </div>
             </Link>
-            <span className="discount">{allproduct.discount}</span>
-          </div>
-          <div className="product-info">
-            <span>{allproduct.title}</span>
-            <Link to="/productdetail">{allproduct.desc}</Link>
-            <h4>{allproduct.price}</h4>
-          </div>
         </div>
         ))}
       </div>
