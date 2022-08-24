@@ -18,14 +18,13 @@ function ProductDetail() {
           <div className="left image-container">
             <div className="main">
               <img src={image[furnitureById.urlImage]} id="zoom" alt="" />
-              {/* {furnitureById.discount ? (<span className="discount"> {furnitureById.discount}%</span>) : ""} */}
             </div>
           </div>
           <div className="right">
             <span>Home/Sofa</span>
             <h1>{furnitureById.title}</h1>
             <div className="price">
-            {furnitureById.price ? "$" : ""} {furnitureById.price}
+              {furnitureById.price ? "$" : ""} {furnitureById.price}
             </div>
             <form className="form">
               <input className="boxFromProduct" type="number" min="0" defaultValue={"1"} />
@@ -36,6 +35,7 @@ function ProductDetail() {
               )}
              
             </form>
+            {furnitureById.stock ? (<div className="btnStock"> {furnitureById.stock} In Stock </div>) : ""}
             <h3>Product Detail</h3>
             <p>
              {furnitureById.description}

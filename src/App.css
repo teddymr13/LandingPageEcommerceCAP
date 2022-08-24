@@ -668,6 +668,15 @@ form span {
   color: #fff;
   border-radius: 3rem;
 }
+.product-detail .btnStock {
+  background-color: #222;
+  font-size: 1rem;
+  padding: 0.4rem 2rem;
+  color: #fff;
+  border-radius: 0.2rem;
+  top: -12px;
+  right: 1px;
+}
 
 .product-detail h3 {
   text-transform: uppercase;
