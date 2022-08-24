@@ -20,9 +20,11 @@ function AllProduct() {
 
   useEffect(()=>{
     if(!data.loading){
+      // console.log("useEffect Furniture")
+      // console.log(furnitures)
       setDataFurnitures(furnitures)
     }
-  },[data.loading, furnitures, dataFurnitures])
+  },[data.loading, furnitures])
 
 
   
