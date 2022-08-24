@@ -13,7 +13,7 @@ function ProductDetail() {
   const furnitureById = data.APIData
   console.log(furnitureById)
   return (
-    <section className="section product-detail">
+    <section className="section product-detail" id="sectiondetail">
         <div className="details container">
           <div className="left image-container">
             <div className="main">

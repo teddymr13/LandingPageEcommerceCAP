@@ -34,7 +34,7 @@ function AllProduct() {
         <h1>All Product</h1>
         <form>
           <select onChange={(e) => filterProduct(e.target.value)}>
-            <option value="" >Default FILTER</option>
+            <option value="" >DEFAULT FILTER</option>
             <option value="SOFA">FILTER SOFA</option>
             <option value="LAMP">FILTER LAMP</option>
             <option value="CHAIR">FILTER CHAIR</option>

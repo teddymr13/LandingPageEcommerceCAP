@@ -1,8 +1,30 @@
-import React from 'react'
-import DataLatestProduct from '../dataLatestProduct'
+import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import {image} from '../../../image'
+import {useFurniture} from '../../../hooks/useFurniture'
+import { Link as Scroll } from "react-scroll";
 
 function LatestProductCart() {
+  const data = useFurniture();
+  const furnitures = data.APIData
+  const [dataFurnitures, setDataFurnitures] = useState([]) 
+
+  useEffect(()=>{
+    const filterProductHapening = productHapening => {
+      // console.log(category)
+      if(productHapening === ""){
+        setDataFurnitures(furnitures)
+      }else{
+        setDataFurnitures(furnitures.filter(f => f.productHapening))
+      } 
+    }
+
+    if(!data.loading){
+      setDataFurnitures(dataFurnitures)
+    }
+    filterProductHapening()
+  },[data.loading, furnitures, dataFurnitures])
+
   return (
     <section className="section featured">
        <div className="top container">
@@ -11,19 +33,21 @@ function LatestProductCart() {
        </div>
  
        <div className="product-center container">
-       {DataLatestProduct.map((latestproduct, index ) => (
+       {dataFurnitures.map((latestproduct, index ) => (
          <div className="product-item" key={index}>
+         <Link to={"/product/" + latestproduct.id}>
            <div className="overlay">
-             <a href="/productdetail" className="product-thumb">
-               <img src={latestproduct.image} alt="" />
-             </a>
-             <span className="discount">{latestproduct.discount}</span>
+            <Scroll to="sectiondetail" spy={true} smooth={true} offset={-100} duration={40} className="product-thumb">
+            <img src={image[latestproduct.urlImage]} alt="" />
+            </Scroll>
+             {latestproduct.discount ? (<span className="discount"> {latestproduct.discount}%</span>) : ""}
            </div>
            <div className="product-info">
-             <span>{latestproduct.title}</span>
-             <Link to="/productdetail">{latestproduct.desc}</Link>
-             <h4>{latestproduct.price}</h4>
+              <span>{latestproduct.category}</span>
+              <div>{latestproduct.title}</div>
+              <h4>{latestproduct.price ? "$" : ""}{latestproduct.price}</h4>
            </div>
+           </Link>
          </div>
          ))}
         </div>
