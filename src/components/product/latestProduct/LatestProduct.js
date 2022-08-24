@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import {image} from '../../../image'
 import {useFurniture} from '../../../hooks/useFurniture'
-import { Link as Scroll } from "react-scroll";
 
-function LatestProductCart() {
+
+function LatestProduct() {
   const data = useFurniture();
   const furnitures = data.APIData
   const [dataFurnitures, setDataFurnitures] = useState([]) 
@@ -25,21 +25,22 @@ function LatestProductCart() {
     filterProductHapening()
   },[data.loading, furnitures, dataFurnitures])
 
+
   return (
-    <section className="section featured">
-       <div className="top container">
-       <h1>Latest Products</h1>
-        <Link to="/product" class="view-more">View more</Link>
+    <section className="section new-arrival">
+       <div className="title">
+         <h1>Latest Furniture</h1>
+         <p>All the latest picked furniture from design in indonesian</p>
        </div>
  
-       <div className="product-center container">
+       <div className="product-center">
        {dataFurnitures.map((latestproduct, index ) => (
          <div className="product-item" key={index}>
          <Link to={"/product/" + latestproduct.id}>
            <div className="overlay">
-            <Scroll to="sectiondetail" spy={true} smooth={true} offset={-100} duration={40} className="product-thumb">
-            <img src={image[latestproduct.urlImage]} alt="" />
-            </Scroll>
+            <a href="sectiondetail" spy={true} smooth={true} offset={-100} duration={40} className="product-thumb">
+               <img src={image[latestproduct.urlImage]} alt="" />
+            </a>
              {latestproduct.discount ? (<span className="discount"> {latestproduct.discount}%</span>) : ""}
            </div>
            <div className="product-info">
@@ -54,4 +55,4 @@ function LatestProductCart() {
      </section>
   )
 }
-export default LatestProductCart
+export default LatestProduct
