@@ -23,7 +23,7 @@ function Product() {
                         <div id="div" className="product-thumb">
                             <img src={image[product.urlImage]} alt="" />
                         </div>
-                        <span className="discount">{product.discount ? "%" : ""} {product.discount}</span>
+                        {product.discount ? (<span className="discount"> {product.discount}%</span>) : ""}
                     </div>
                     <div className="product-info">
                         <span>{product.category}</span>
