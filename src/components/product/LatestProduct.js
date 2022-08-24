@@ -1,7 +1,30 @@
-import React from 'react'
-import DataLatestProduct from './dataLatestProduct'
+import React, {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
+import {image} from '../../../src/image'
+import {useFurniture} from '../../../src/hooks/useFurniture'
 
 function LatestProduct() {
+  const data = useFurniture();
+  const furnitures = data.APIData
+  const [dataFurnitures, setDataFurnitures] = useState([]) 
+
+  useEffect(()=>{
+    const filterProductHapening = productHapening => {
+      // console.log(category)
+      if(productHapening === ""){
+        setDataFurnitures(furnitures)
+      }else{
+        setDataFurnitures(furnitures.filter(f => f.productHapening))
+      } 
+    }
+
+    if(!data.loading){
+      setDataFurnitures(dataFurnitures)
+    }
+    filterProductHapening()
+  },[data.loading, furnitures, dataFurnitures])
+
+
   return (
     <section className="section new-arrival">
        <div className="title">
@@ -10,19 +33,21 @@ function LatestProduct() {
        </div>
  
        <div className="product-center">
-       {DataLatestProduct.map((latestproduct, index ) => (
+       {dataFurnitures.map((latestproduct, index ) => (
          <div className="product-item" key={index}>
+         <Link to={"/product/" + latestproduct.id}>
            <div className="overlay">
              <a href="/productdetail" className="product-thumb">
-               <img src={latestproduct.image} alt="" />
+               <img src={image[latestproduct.urlImage]} alt="" />
              </a>
-             <span className="discount">{latestproduct.discount}</span>
+             {latestproduct.discount ? (<span className="discount"> {latestproduct.discount}%</span>) : ""}
            </div>
            <div className="product-info">
-             <span>{latestproduct.title}</span>
-             <a href="/productdetail">{latestproduct.desc}</a>
-             <h4>{latestproduct.price}</h4>
+              <span>{latestproduct.category}</span>
+              <div>{latestproduct.title}</div>
+              <h4>{latestproduct.price ? "$" : ""}{latestproduct.price}</h4>
            </div>
+           </Link>
          </div>
          ))}
         </div>
