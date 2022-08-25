@@ -1,16 +1,44 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { auth } from '../../../firebase/configFirebase';
 import { useAuthState} from 'react-firebase-hooks/auth';
 import {image} from '../../../image'
+import {useDispatch} from 'react-redux'
 import { useFurnitureById } from '../../../hooks/useFurniture'
+import 'react-toastify/dist/ReactToastify.css';
 
 function ProductDetail() {
   const {productId} = useParams()
+  const dispatch = useDispatch()
+
   const [user] = useAuthState(auth); 
   const data = useFurnitureById(productId);
   const furnitureById = data.APIData
-  console.log(furnitureById)
+  // console.log(furnitureById)
+  useEffect(() => {
+		window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+	}, [furnitureById]);
+
+  const [detailOrder, setDetailOrder] = useState({
+    quantity: 0
+  });
+
+
+  const handleAddToCart = () => {
+    const { id, urlImage, title, price, stock, description} = furnitureById;
+    const { quantity } = detailOrder;
+      const data = { id, urlImage, title, price, stock, description, quantity };
+      if (quantity === 0) {
+        alert('Please fill all field');
+      } else {
+        dispatch({
+          type: 'ADD_TO_CART',
+          value: data
+        });
+        alert('Added to cart');
+      }
+  };
+  
   return (
     <section className="section product-detail" id="sctdetail">
         <div className="details container">
@@ -26,9 +54,13 @@ function ProductDetail() {
               {furnitureById.price ? "$" : ""} {furnitureById.price}
             </div>
             <form className="form">
-              <input className="boxFromProduct" type="number" min="0" defaultValue={"1"} />
+              <input className="boxFromProduct" type="number" min="0" defaultValue={"0"} 
+                onChange={e =>
+                setDetailOrder({ ...detailOrder, quantity: e.target.value })
+              }
+              />
               {user ? (
-                <Link to="/cart" className="addCart">Add To Cart</Link>
+                <Link to="/cart" className="addCart"  onClick={handleAddToCart} >Add To Cart</Link>
               ):(
                 <Link to="/signin" className="addCart">Add To Cart</Link>
               )}

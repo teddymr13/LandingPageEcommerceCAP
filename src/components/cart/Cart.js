@@ -1,8 +1,19 @@
 import React from 'react'
-import img7 from '../../assets/images/product-7.jpg'
 import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux';
+import {image} from '../../../src/image'
+import { removeProductToCart } from '../../redux/card-product/action';
 
 function Cart() {
+  const dispatch = useDispatch();
+  const { data } = useSelector(state => state.productOrder);
+  const subTotalPrice = data.reduce(
+    (acc, curr) => acc + curr.price * curr.quantity,
+    0
+  );
+  const tax = ((10 / 100) * subTotalPrice).toFixed(2);
+  const totalPrice = (subTotalPrice + parseFloat(tax)).toFixed(2);
+
   return (
   <div className="container cart">
     <table>
@@ -11,34 +22,36 @@ function Cart() {
         <th>Quantity</th>
         <th>Subtotal</th>
       </tr>
-      <tr>
+      {data.map((item, idx) => (
+      <tr key={idx}>
         <td>
           <div className="cart-info">
-            <img src={img7} alt="" />
+            <img src={image[item.urlImage]} alt="" />
             <div>
-              <p>Concepts Solid White and Red</p>
-              <span>Price: $500</span> <br />
-              <Link to="#">remove</Link>
+              <p>{item.title}</p>
+              <span>Price: {item.price}</span> <br />
+              <Link to="#" onClick={() => dispatch(removeProductToCart(item))}>remove</Link>
             </div>
           </div>
         </td>
-        <td><input type="number" min="0" value="0"/></td>
-        <td>$500</td>
+        <td><input type="number" min="0" defaultValue={item.quantity}/></td>
+        <td>${subTotalPrice}</td>
       </tr>
+      ))}
     </table>
     <div className="total-price">
       <table>
         <tr>
           <td>Subtotal</td>
-          <td>$500</td>
+          <td>${subTotalPrice}</td>
         </tr>
         <tr>
           <td>Tax</td>
-          <td>$100</td>
+          <td>${tax}</td>
         </tr>
         <tr>
           <td>Total</td>
-          <td>$600</td>
+          <td>${totalPrice}</td>
         </tr>
       </table>
       <Link to="#" className="checkout btn">Proceed To Checkout</Link>

@@ -7,9 +7,13 @@ function Product() {
 
   const data = useFurniture();
   const furnitures = data.APIData
+  const isLoading = data.loading
 
 
-  return (
+
+  return isLoading ? (
+      <h1>Loading......</h1>
+    ) : (
     <section className="section new-arrival">
         <div className="title">
             <h1>NEW PRODUCT</h1>

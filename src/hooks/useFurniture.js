@@ -8,11 +8,11 @@ export const useFurniture = () => {
   useEffect(() =>{
     const fetchFurniture = async () => {
         try {
+            setLoading(true);
             const response = await axios.get(
                 `https://63034bbd9eb72a839d7d1593.mockapi.io/api/v1/furnitures`
             );
             setAPIData(response.data);
-            setLoading(true);
         } catch (error) {
             console.log("error", error);
         } finally {

@@ -1,19 +1,23 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { Link as Scroll } from "react-scroll";
 import { auth, logout} from '../../firebase/configFirebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 function Header() {
-  const navslide = () => {
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
+  const navslide = () => {
      const navToggle = document.getElementsByClassName("toggle");
      for (let i = 0; i < navToggle.length; i++) {
        navToggle.item(i).classList.toggle("hidden");
      }
   }
   const [user] = useAuthState(auth);
-  
+
   return (
     <nav className="flex flex-wrap items-center justify-between p-5 bg-peach">      
     <Link to="/" className="logo text-4xl font-semibold md:ml-6 ml-2"><h1>TFurniture</h1></Link>
