@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
-import { Link as Scroll } from "react-scroll";
 import {image} from '../../image'
 import {useFurniture} from '../../hooks/useFurniture'
 
@@ -21,10 +20,10 @@ function LatestProduct() {
     }
 
     if(!data.loading){
-      setDataFurnitures(dataFurnitures)
+      setDataFurnitures()
     }
     filterProductHapening()
-  },[data.loading, furnitures, dataFurnitures])
+  },[data.loading, furnitures])
 
 
   return (
@@ -33,15 +32,15 @@ function LatestProduct() {
          <h1>Latest Furniture</h1>
          <p>All the latest picked furniture from design in indonesian</p>
        </div>
-       <Scroll to="sctdetail" spy={true} smooth={true} offset={-100} duration={30}>  
+      
         <div className="product-center">
         {dataFurnitures.map((latestproduct, index ) => (
           <div className="product-item" key={index}>
           <Link to={"/product/" + latestproduct.id}>
             <div className="overlay">
-              <a href="/productdetail" className="product-thumb">
+              <div className="product-thumb">
                 <img src={image[latestproduct.urlImage]} alt="" />
-              </a>
+              </div>
               {latestproduct.discount ? (<span className="discount"> {latestproduct.discount}%</span>) : ""}
             </div>
             <div className="product-info">
@@ -53,7 +52,7 @@ function LatestProduct() {
           </div>
           ))}
           </div>
-        </Scroll>
+        
      </section>
   )
 }

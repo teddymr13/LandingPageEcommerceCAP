@@ -1,5 +1,4 @@
 import React from 'react'
-// import DataProductDetail from './dataProductDetail'
 import { Link, useParams } from 'react-router-dom'
 import { auth } from '../../../firebase/configFirebase';
 import { useAuthState} from 'react-firebase-hooks/auth';
