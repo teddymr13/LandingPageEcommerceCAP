@@ -6,7 +6,8 @@ import {useFurniture} from '../../hooks/useFurniture'
 function Product() {
 
   const data = useFurniture();
-  const furnitures = data.APIData  
+  const furnitures = data.APIData
+
 
   return (
     <section className="section new-arrival">
