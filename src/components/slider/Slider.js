@@ -23,6 +23,7 @@ function Slider() {
       }, 5000);
       return () => clearInterval(slider)
   }, [index])
+  
     
   return (
     <div className="hero">
