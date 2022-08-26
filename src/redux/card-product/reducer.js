@@ -1,5 +1,7 @@
 import { ADD_TO_CART, REMOVE_FROM_CART, CHANGE_QUANTITY_ITEM } from '../card-product/action';
 
+
+
 const INITIAL_STATE = {
   data: []
 };
@@ -7,9 +9,17 @@ const INITIAL_STATE = {
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_TO_CART:
+      console.log(state)
+      if (state.data.length < 1) {
+        return {
+          data : [action.value]
+        }
+      }
+      const product = state.data.find(products => products.id === action.value.id)
+      console.log(product)
+      const products =  !product ? ([...state.data, product]) : state.data.map((p) => (p.id === product.id ? { ...p, quantity: p.quantity + action.value.quantity } : p));
       return {
-        ...state,
-        data: [...state.data, action.value]
+        data : products
       };
 
     case REMOVE_FROM_CART:

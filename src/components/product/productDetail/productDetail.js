@@ -23,9 +23,11 @@ function ProductDetail() {
     quantity: 0
   });
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e) => {
+    e.preventDefault()
     const { id, urlImage, title, price, stock, description} = furnitureById;
     const { quantity } = detailOrder;
+    console.log(quantity, "QTY")
       const data = { id, urlImage, title, price, stock, description, quantity };
       if (quantity === 0) {
         alert('Please fill all field');
@@ -33,7 +35,7 @@ function ProductDetail() {
       } else {
         dispatch({
           type: 'ADD_TO_CART',
-          value: data
+          value: {...data, quantity}
         });
         navigate("/cart");
         alert('Added to cart');
@@ -49,23 +51,22 @@ function ProductDetail() {
             </div>
           </div>
           <div className="right">
-            <span>Home/Sofa</span>
+            <span><Link to="/">HOME</Link>/{furnitureById.category}</span>
             <h1>{furnitureById.title}</h1>
             <div className="price">
               {furnitureById.price ? "$" : ""} {furnitureById.price}
             </div>
-            <form className="form">
+            <form className="form" onSubmit={handleAddToCart}>
               <input className="boxFromProduct" type="number" min="1" defaultValue={"0"} 
                 onChange={e =>
                 setDetailOrder({ ...detailOrder, quantity: Number(e.target.value) })
               }
               />
               {user ? (
-                <button className="addCart"  onClick={handleAddToCart} >Add To Cart</button>
+                <button className="addCart">Add To Cart</button>
               ):(
                 <Link to="/signin" className="addCart">Add To Cart</Link>
               )}
-             
             </form>
             {furnitureById.stock ? (<div className="btnStock"> {furnitureById.stock} In Stock </div>) : ""}
             <h3>Product Detail</h3>
