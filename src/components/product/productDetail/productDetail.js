@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { auth } from '../../../firebase/configFirebase';
 import { useAuthState} from 'react-firebase-hooks/auth';
 import {image} from '../../../image'
 import {useDispatch} from 'react-redux'
 import { useFurnitureById } from '../../../hooks/useFurniture'
-import 'react-toastify/dist/ReactToastify.css';
 
 function ProductDetail() {
   const {productId} = useParams()
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [user] = useAuthState(auth); 
   const data = useFurnitureById(productId);
@@ -23,18 +23,19 @@ function ProductDetail() {
     quantity: 0
   });
 
-
   const handleAddToCart = () => {
     const { id, urlImage, title, price, stock, description} = furnitureById;
     const { quantity } = detailOrder;
       const data = { id, urlImage, title, price, stock, description, quantity };
       if (quantity === 0) {
         alert('Please fill all field');
+        console.log(quantity)
       } else {
         dispatch({
           type: 'ADD_TO_CART',
           value: data
         });
+        navigate("/cart");
         alert('Added to cart');
       }
   };
@@ -56,11 +57,11 @@ function ProductDetail() {
             <form className="form">
               <input className="boxFromProduct" type="number" min="0" defaultValue={"0"} 
                 onChange={e =>
-                setDetailOrder({ ...detailOrder, quantity: e.target.value })
+                setDetailOrder({ ...detailOrder, quantity: Number(e.target.value) })
               }
               />
               {user ? (
-                <Link to="/cart" className="addCart"  onClick={handleAddToCart} >Add To Cart</Link>
+                <button className="addCart"  onClick={handleAddToCart} >Add To Cart</button>
               ):(
                 <Link to="/signin" className="addCart">Add To Cart</Link>
               )}
