@@ -17,7 +17,7 @@ const reducer = (state = INITIAL_STATE, action) => {
       }
       const product = state.data.find(products => products.id === action.value.id)
       console.log(product)
-      const products =  !product ? ([...state.data, product]) : state.data.map((p) => (p.id === product.id ? { ...p, quantity: p.quantity + action.value.quantity } : p));
+      const products =  !product ? ([...state.data, action.value]) : state.data.map((p) => (p.id === product.id ? { ...p, quantity: p.quantity + action.value.quantity } : p));
       return {
         data : products
       };
