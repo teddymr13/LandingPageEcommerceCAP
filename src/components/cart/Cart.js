@@ -17,13 +17,16 @@ function Cart() {
   return (
   <div className="container cart">
     <table>
+     <thead>
       <tr>
         <th>Product</th>
         <th>Quantity</th>
         <th>Subtotal</th>
       </tr>
+      </thead>
       {data.map((item, idx) => (
-      <tr key={idx}>
+      <tbody key={idx}>  
+      <tr>
         <td>
           <div className="cart-info">
             <img src={image[item.urlImage]} alt="" />
@@ -37,10 +40,12 @@ function Cart() {
         <td><input type="number" min="0" defaultValue={item.quantity}/></td>
         <td>${subTotalPrice}</td>
       </tr>
+      </tbody>
       ))}
     </table>
     <div className="total-price">
       <table>
+        <thead>
         <tr>
           <td>Subtotal</td>
           <td>${subTotalPrice}</td>
@@ -53,6 +58,7 @@ function Cart() {
           <td>Total</td>
           <td>${totalPrice}</td>
         </tr>
+        </thead>
       </table>
       <Link to="#" className="checkout btn">Proceed To Checkout</Link>
     </div>
