@@ -55,7 +55,7 @@ function ProductDetail() {
               {furnitureById.price ? "$" : ""} {furnitureById.price}
             </div>
             <form className="form">
-              <input className="boxFromProduct" type="number" min="0" defaultValue={"0"} 
+              <input className="boxFromProduct" type="number" min="1" defaultValue={"0"} 
                 onChange={e =>
                 setDetailOrder({ ...detailOrder, quantity: Number(e.target.value) })
               }
